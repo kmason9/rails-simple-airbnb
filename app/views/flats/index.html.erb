@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg bg-light d-flex justify-content-between">
+  <h4 class="navbar-brand p-3"> Simple airBnb </h4>
+      <form class="d-flex p-3">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+  </nav>
+<div class="container py-4 d-flex flex-column">
+<h3>All Flats</h3>
+<p>Scroll through our <%= @flats.count%> flats available for rent</p>
+<div class="row">
+<% @flats.each do |flat| %>
+<div class="col-md-4 my-3">
+  <div class="card bg-light h-100">
+    <img src="https://plus.unsplash.com/premium_photo-1661883964999-c1bcb57a7357?q=80&w=2928&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+        <div class="card-body">
+          <h4><%= flat.name %></h4>
+          <p><%= flat.address %></p>
+          <i class="fa-solid fa-sterling-sign"></i> <%= flat.price_per_night %>
+          <i class="fa-solid fa-people-group"></i> <%= flat.number_of_guests %>
+        </div>
+        <div class="bg-white p-3">
+          <%= link_to "View", flat_path(flat) %>
+        </div>
+  </div>
+</div>
+<% end %>
+</div>
+</div>
